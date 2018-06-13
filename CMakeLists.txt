@@ -92,6 +92,7 @@ set(protobuf_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 # Don't build SDL dynamic lib.
 set(SDL_SHARED ON CACHE BOOL "" FORCE)
 set(SDL_STATIC OFF CACHE BOOL "" FORCE)
+set(BUILD_SHARED_LIBS ON CACHE BOOL "" FORCE)
 
 # Run civetwebs cmake.
 add_subdirectory("contrib/civetweb")

@@ -6,5 +6,5 @@ if [ ! -d build_gmake ]; then
 fi
 
 pushd build_gmake
-cmake -G "Unix Makefiles" ..
+cmake -G "Unix Makefiles" -Dprotobuf_BUILD_SHARED_LIBS=ON ..
 popd

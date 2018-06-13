@@ -28,10 +28,10 @@ include_directories(SYSTEM "${PROJECT_BINARY_DIR}/generated")
 add_compile_options($<$<CXX_COMPILER_ID:MSVC>:/MP>)
 
 # Create the library
-add_library(sc2api ${sources_sc2})
-add_library(sc2lib ${sources_sc2_lib})
-add_library(sc2protocol ${proto_src} ${proto_files})
-add_library(sc2utils ${sources_utils})
+add_library(sc2api SHARED ${sources_sc2})
+add_library(sc2lib SHARED ${sources_sc2_lib})
+add_library(sc2protocol SHARED ${proto_src} ${proto_files})
+add_library(sc2utils SHARED ${sources_utils})
 
 set_target_properties(sc2api PROPERTIES DEBUG_POSTFIX "d")
 set_target_properties(sc2lib PROPERTIES DEBUG_POSTFIX "d")
@@ -46,9 +46,9 @@ endif ()
 
 # Exclude SDL and related projects to work around linker issue.
 if (NOT APPLE)
-    add_library(sc2renderer ${sources_renderer})
+    add_library(sc2renderer SHARED ${sources_renderer})
     set_target_properties(sc2renderer PROPERTIES DEBUG_POSTFIX "d")
-    target_link_libraries(sc2renderer SDL2-static)
+    target_link_libraries(sc2renderer SDL2)
     include_directories("../contrib/SDL-mirror/include")
 endif ()
 

@@ -90,7 +90,8 @@ set(protobuf_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(protobuf_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
 # Don't build SDL dynamic lib.
-set(SDL_SHARED OFF CACHE BOOL "" FORCE)
+set(SDL_SHARED ON CACHE BOOL "" FORCE)
+set(SDL_STATIC OFF CACHE BOOL "" FORCE)
 
 # Run civetwebs cmake.
 add_subdirectory("contrib/civetweb")
@@ -125,7 +126,7 @@ if (NOT APPLE)
 	add_subdirectory("contrib/SDL-mirror")
 
 	set_target_properties(SDL2main PROPERTIES FOLDER contrib)
-	set_target_properties(SDL2-static PROPERTIES FOLDER contrib)
+	set_target_properties(SDL2 PROPERTIES FOLDER contrib)
 endif ()
 
 add_subdirectory("src")

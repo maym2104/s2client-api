@@ -96,11 +96,11 @@ Point2D& Point2D::operator/=(float rhs) {
     return *this;
 }
 
-bool Point2D::operator==(const Point2D& rhs) {
+bool Point2D::operator==(const Point2D& rhs) const{
     return x == rhs.x && y == rhs.y;
 }
 
-bool Point2D::operator!=(const Point2D& rhs) {
+bool Point2D::operator!=(const Point2D& rhs) const{
     return !(*this == rhs);
 }
 
